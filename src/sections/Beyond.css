@@ -1,0 +1,449 @@
+/* ================================
+   BEYOND SECTION
+================================ */
+
+.beyond {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 7%;
+  background: transparent;
+  color: #132136;
+}
+
+.beyond-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.beyond-header {
+  margin-bottom: 48px;
+}
+
+.beyond-section-label {
+  display: none;
+}
+
+.beyond-heading h2 {
+  color: #132136;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  letter-spacing: -2.5px;
+  line-height: 1.05;
+}
+
+.beyond-heading p {
+  margin-top: 16px;
+  color: #888;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ================================
+   GRID
+================================ */
+
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* ================================
+   BASE CARD
+================================ */
+
+.beyond-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 36px;
+  color: #132136;
+  box-shadow: 0 4px 16px rgba(19, 33, 54, 0.025);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.beyond-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 30px rgba(19, 33, 54, 0.07);
+}
+
+/* Card positions */
+
+.beyond-card-activity {
+  grid-column: span 3;
+  min-height: 420px;
+}
+
+.beyond-card-contributions {
+  grid-column: span 9;
+  min-height: 420px;
+}
+
+.beyond-card-web {
+  grid-column: span 7;
+  min-height: 330px;
+}
+
+.beyond-card-network {
+  grid-column: span 5;
+  min-height: 330px;
+}
+
+/* ================================
+   CARD CONTENT
+================================ */
+
+.beyond-card-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  min-width: 0;
+  padding: 30px;
+  color: #132136;
+}
+
+.beyond-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.beyond-eyebrow {
+  color: #8b95a5;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.beyond-status {
+  color: #7c9b83;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.beyond-card-content h3 {
+  margin-top: 24px;
+  color: #132136;
+  font-size: clamp(20px, 2vw, 27px);
+  font-weight: 500;
+  letter-spacing: -0.8px;
+}
+
+.beyond-description {
+  margin-top: 9px;
+  color: #8993a2;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ================================
+   ACTIVITY / TECH STACK
+================================ */
+
+.activity-content {
+  position: relative;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.tech-carousel {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 190px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.tech-carousel .circular-carousel {
+  min-height: 190px;
+}
+
+/* ================================
+   GITHUB CONTRIBUTIONS
+================================ */
+
+.contribution-content {
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+.contribution-period {
+  color: #8b95a5;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.github-calendar-wrap {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  min-width: 0;
+  overflow: visible;
+}
+
+/* Calendar container */
+.github-calendar-wrap > div {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Calendar SVG */
+.github-calendar-wrap svg {
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* Calendar text */
+.github-calendar-wrap text {
+  font-family: inherit;
+  fill: #8993a2;
+}
+
+/* Contribution squares */
+.github-calendar-wrap rect {
+  shape-rendering: geometricPrecision;
+}
+
+/* ================================
+   FOCUS AREAS
+================================ */
+
+.focus-content {
+  justify-content: space-between;
+}
+
+.focus-main {
+  margin: auto 0;
+  padding: 20px 0;
+}
+
+.focus-number {
+  color: #a0a9b6;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.focus-main h3 {
+  margin-top: 12px;
+  font-size: clamp(24px, 3vw, 36px);
+}
+
+.focus-main .beyond-description {
+  max-width: 380px;
+}
+
+.focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.focus-tags span {
+  padding: 7px 11px;
+  border: 1px solid #e5e7eb;
+  border-radius: 30px;
+  color: #657184;
+  font-size: 10px;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.focus-tags span:hover {
+  background: #f5f7fa;
+  border-color: #cbd5e1;
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 900px) {
+  .beyond {
+    padding: 100px 5%;
+  }
+
+  .beyond-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .beyond-card-activity,
+  .beyond-card-contributions,
+  .beyond-card-web,
+  .beyond-card-network {
+    grid-column: span 1;
+    min-height: 360px;
+  }
+
+  .beyond-card-activity,
+  .beyond-card-contributions {
+    grid-column: span 2;
+  }
+
+  .beyond-card-contributions {
+    min-height: 380px;
+  }
+
+  .github-calendar-wrap {
+    padding-top: 24px;
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+  .beyond {
+    min-height: auto;
+    padding: 90px 6%;
+  }
+
+  .beyond-header {
+    margin-bottom: 32px;
+  }
+
+  .beyond-section-label {
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .beyond-section-label .mobile-page-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #132136;
+  }
+
+  .beyond-section-label p {
+    display: block;
+    margin-top: 12px;
+    color: #888;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .beyond-heading p {
+    display: none;
+  }
+
+  .beyond-heading h2 {
+    letter-spacing: -1.5px;
+  }
+
+  .beyond-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .beyond-card-activity,
+  .beyond-card-contributions,
+  .beyond-card-web,
+  .beyond-card-network {
+    grid-column: 1;
+    min-height: 340px;
+  }
+
+  .beyond-card-content {
+    padding: 24px;
+  }
+
+  .beyond-card-contributions {
+    min-height: 360px;
+  }
+
+  .contribution-content {
+    min-height: 360px;
+  }
+
+  .github-calendar-wrap {
+    width: 100%;
+    padding-top: 24px;
+    overflow: visible;
+  }
+
+  .github-calendar-wrap svg {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+  }
+}
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 480px) {
+  .beyond {
+    padding: 75px 5%;
+  }
+
+  .beyond-card {
+    border-radius: 28px;
+  }
+
+  .beyond-card-content {
+    padding: 20px;
+  }
+
+  .beyond-card-content h3 {
+    margin-top: 18px;
+  }
+
+  .beyond-card-contributions {
+    min-height: 330px;
+  }
+
+  .contribution-content {
+    min-height: 330px;
+  }
+
+  .beyond-card-heading {
+    gap: 8px;
+  }
+
+  .beyond-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .contribution-period {
+    font-size: 8px;
+  }
+
+  .github-calendar-wrap {
+    padding-top: 20px;
+  }
+
+  .github-calendar-wrap svg {
+    width: 100% !important;
+    max-width: 100%;
+  }
+}
+
+.activity-feed-content {
+  justify-content: flex-start;
+  min-width: 0;
+}

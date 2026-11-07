@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Keep scrollbar space consistent */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+/* Scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #777 transparent;
+}
+
+/* Chrome, Edge, Safari */
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #777;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #999;
+  background-clip: content-box;
+}
