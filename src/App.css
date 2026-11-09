@@ -5,7 +5,11 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body);
+  color: var(--color-primary);
+  background: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Keep scrollbar space consistent */
@@ -39,4 +43,12 @@ html::-webkit-scrollbar-thumb {
 html::-webkit-scrollbar-thumb:hover {
   background: #999;
   background-clip: content-box;
+}
+
+/* Consistent form typography */
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }

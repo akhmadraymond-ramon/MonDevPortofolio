@@ -6,32 +6,46 @@ function Navbar() {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const sections = ['home', 'about', 'projects', 'contact']
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
+    const handleScroll = () => {
+      const beyond = document.getElementById('beyond');
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (a, b) =>
-              b.intersectionRatio - a.intersectionRatio
-          );
+      if (!beyond) return;
 
-        if (visibleSections.length > 0) {
-          setActiveSection(visibleSections[0].target.id);
-        }
-      },
-      {
-        rootMargin: '-20% 0px -55% 0px',
-        threshold: 0,
+      const beyondTop = beyond.getBoundingClientRect().top;
+
+      // Beyond aktif setelah bagian atasnya melewati 70% tinggi layar.
+      if (beyondTop <= window.innerHeight * 0.7) {
+        setActiveSection('beyond');
+        return;
       }
-    );
 
-    sections.forEach((section) => observer.observe(section));
+      const sections = ['home', 'about', 'projects'];
 
-    return () => observer.disconnect();
+      let current = 'home';
+
+      sections.forEach((id) => {
+        const section = document.getElementById(id);
+
+        if (
+          section &&
+          section.getBoundingClientRect().top <= window.innerHeight * 0.7
+        ) {
+          current = id;
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll, {
+      passive: true,
+    });
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   // Menunggu sampai scroll selesai
@@ -121,10 +135,10 @@ function Navbar() {
         </a>
 
         <a
-          href="#contact"
-          className={activeSection === 'contact' ? 'active' : ''}
+          href="#beyond"
+          className={activeSection === 'beyond' ? 'active' : ''}
         >
-          AskMe
+          Beyond
         </a>
       </div>
     </nav>

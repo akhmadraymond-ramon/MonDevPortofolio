@@ -6,43 +6,32 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  padding: 120px 7%;
+  padding: 110px clamp(48px, 8vw, 130px);
   background: transparent;
-  color: #132136;
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  box-sizing: border-box;
 }
 
 .beyond-container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1240px;
   margin: 0 auto;
 }
+
 
 /* ================================
    HEADER
 ================================ */
 
 .beyond-header {
-  margin-bottom: 48px;
+  margin-bottom: 0;
 }
 
 .beyond-section-label {
   display: none;
 }
 
-.beyond-heading h2 {
-  color: #132136;
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 500;
-  letter-spacing: -2.5px;
-  line-height: 1.05;
-}
-
-.beyond-heading p {
-  margin-top: 16px;
-  color: #888;
-  font-size: 15px;
-  line-height: 1.7;
-}
 
 /* ================================
    GRID
@@ -51,9 +40,10 @@
 .beyond-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
   align-items: stretch;
 }
+
 
 /* ================================
    BASE CARD
@@ -62,11 +52,11 @@
 .beyond-card {
   min-width: 0;
   overflow: hidden;
-  background: #ffffff;
-  border: 2px solid #e5e7eb;
-  border-radius: 36px;
-  color: #132136;
-  box-shadow: 0 4px 16px rgba(19, 33, 54, 0.025);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  color: var(--color-primary);
+  box-shadow: 0 4px 18px rgba(19, 33, 54, 0.025);
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
@@ -74,32 +64,36 @@
 }
 
 .beyond-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 28px rgba(19, 33, 54, 0.055);
   transform: translateY(-3px);
-  border-color: #cbd5e1;
-  box-shadow: 0 12px 30px rgba(19, 33, 54, 0.07);
 }
 
-/* Card positions */
+
+/* ================================
+   CARD POSITIONS
+================================ */
 
 .beyond-card-activity {
   grid-column: span 3;
-  min-height: 420px;
+  min-height: 390px;
 }
 
 .beyond-card-contributions {
   grid-column: span 9;
-  min-height: 420px;
+  min-height: 390px;
 }
 
 .beyond-card-web {
   grid-column: span 7;
-  min-height: 330px;
+  min-height: 320px;
 }
 
 .beyond-card-network {
   grid-column: span 5;
-  min-height: 330px;
+  min-height: 320px;
 }
+
 
 /* ================================
    CARD CONTENT
@@ -112,8 +106,9 @@
   height: 100%;
   min-height: inherit;
   min-width: 0;
-  padding: 30px;
-  color: #132136;
+  padding: 26px;
+  color: var(--color-primary);
+  box-sizing: border-box;
 }
 
 .beyond-card-heading {
@@ -124,10 +119,10 @@
 }
 
 .beyond-eyebrow {
-  color: #8b95a5;
+  color: var(--color-muted);
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.3px;
 }
 
 .beyond-status {
@@ -137,19 +132,22 @@
 }
 
 .beyond-card-content h3 {
-  margin-top: 24px;
-  color: #132136;
-  font-size: clamp(20px, 2vw, 27px);
-  font-weight: 500;
-  letter-spacing: -0.8px;
+  margin-top: 21px;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 1.7vw, 25px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
 }
 
 .beyond-description {
   margin-top: 9px;
-  color: #8993a2;
+  color: var(--color-secondary);
+  font-family: var(--font-body);
   font-size: 12px;
   line-height: 1.7;
 }
+
 
 /* ================================
    ACTIVITY / TECH STACK
@@ -165,14 +163,15 @@
   position: relative;
   flex: 1;
   width: 100%;
-  min-height: 190px;
+  min-height: 180px;
   margin-top: 12px;
   overflow: hidden;
 }
 
 .tech-carousel .circular-carousel {
-  min-height: 190px;
+  min-height: 180px;
 }
+
 
 /* ================================
    GITHUB CONTRIBUTIONS
@@ -184,29 +183,27 @@
 }
 
 .contribution-period {
-  color: #8b95a5;
+  color: var(--color-muted);
   font-size: 9px;
   letter-spacing: 1px;
 }
 
 .github-calendar-wrap {
-  width: 100%;
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
-  margin-top: 20px;
+  width: 100%;
   min-width: 0;
+  margin-top: 18px;
   overflow: visible;
 }
 
-/* Calendar container */
 .github-calendar-wrap > div {
   width: 100%;
   max-width: 100%;
 }
 
-/* Calendar SVG */
 .github-calendar-wrap svg {
   display: block;
   width: 100% !important;
@@ -214,16 +211,15 @@
   height: auto !important;
 }
 
-/* Calendar text */
 .github-calendar-wrap text {
-  font-family: inherit;
-  fill: #8993a2;
+  font-family: var(--font-body);
+  fill: var(--color-muted);
 }
 
-/* Contribution squares */
 .github-calendar-wrap rect {
   shape-rendering: geometricPrecision;
 }
+
 
 /* ================================
    FOCUS AREAS
@@ -235,18 +231,18 @@
 
 .focus-main {
   margin: auto 0;
-  padding: 20px 0;
+  padding: 18px 0;
 }
 
 .focus-number {
-  color: #a0a9b6;
+  color: var(--color-muted);
   font-size: 12px;
   letter-spacing: 2px;
 }
 
 .focus-main h3 {
   margin-top: 12px;
-  font-size: clamp(24px, 3vw, 36px);
+  font-size: clamp(24px, 2.5vw, 34px);
 }
 
 .focus-main .beyond-description {
@@ -262,9 +258,9 @@
 
 .focus-tags span {
   padding: 7px 11px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-border);
   border-radius: 30px;
-  color: #657184;
+  color: var(--color-secondary);
   font-size: 10px;
   transition:
     background 0.25s ease,
@@ -276,40 +272,48 @@
   border-color: #cbd5e1;
 }
 
+
+/* ================================
+   ACTIVITY FEED
+================================ */
+
+.activity-feed-content {
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+
 /* ================================
    TABLET
 ================================ */
 
 @media (max-width: 900px) {
   .beyond {
-    padding: 100px 5%;
+    padding: 90px 5%;
   }
 
   .beyond-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .beyond-card-activity,
-  .beyond-card-contributions,
-  .beyond-card-web,
-  .beyond-card-network {
-    grid-column: span 1;
-    min-height: 360px;
+    gap: 16px;
   }
 
   .beyond-card-activity,
   .beyond-card-contributions {
     grid-column: span 2;
+    min-height: 360px;
   }
 
-  .beyond-card-contributions {
-    min-height: 380px;
+  .beyond-card-web,
+  .beyond-card-network {
+    grid-column: span 1;
+    min-height: 340px;
   }
 
   .github-calendar-wrap {
-    padding-top: 24px;
+    padding-top: 20px;
   }
 }
+
 
 /* ================================
    MOBILE
@@ -322,40 +326,13 @@
   }
 
   .beyond-header {
-    margin-bottom: 32px;
-  }
-
-  .beyond-section-label {
-    display: block;
-    margin-bottom: 24px;
-  }
-
-  .beyond-section-label .mobile-page-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #132136;
-  }
-
-  .beyond-section-label p {
-    display: block;
-    margin-top: 12px;
-    color: #888;
-    font-size: 12px;
-    line-height: 1.7;
-  }
-
-  .beyond-heading p {
-    display: none;
-  }
-
-  .beyond-heading h2 {
-    letter-spacing: -1.5px;
+    margin-bottom: 320px;
   }
 
   .beyond-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 14px;
+    margin-top: 100px;
   }
 
   .beyond-card-activity,
@@ -370,17 +347,14 @@
     padding: 24px;
   }
 
-  .beyond-card-contributions {
-    min-height: 360px;
-  }
-
+  .beyond-card-contributions,
   .contribution-content {
     min-height: 360px;
   }
 
   .github-calendar-wrap {
     width: 100%;
-    padding-top: 24px;
+    padding-top: 20px;
     overflow: visible;
   }
 
@@ -391,6 +365,7 @@
   }
 }
 
+
 /* ================================
    SMALL MOBILE
 ================================ */
@@ -398,6 +373,10 @@
 @media (max-width: 480px) {
   .beyond {
     padding: 75px 5%;
+  }
+
+  .beyond-header {
+    margin-bottom: 28px;
   }
 
   .beyond-card {
@@ -412,10 +391,13 @@
     margin-top: 18px;
   }
 
-  .beyond-card-contributions {
+  .beyond-card-activity,
+  .beyond-card-web,
+  .beyond-card-network {
     min-height: 330px;
   }
 
+  .beyond-card-contributions,
   .contribution-content {
     min-height: 330px;
   }
@@ -434,7 +416,7 @@
   }
 
   .github-calendar-wrap {
-    padding-top: 20px;
+    padding-top: 18px;
   }
 
   .github-calendar-wrap svg {
@@ -443,7 +425,81 @@
   }
 }
 
-.activity-feed-content {
-  justify-content: flex-start;
-  min-width: 0;
+
+/* ================================
+   EXTRA SMALL MOBILE
+================================ */
+
+@media (max-width: 375px) {
+  .beyond {
+    padding: 70px 18px;
+  }
+
+  .beyond-card-content {
+    padding: 18px;
+  }
+
+  .beyond-card-content h3 {
+    font-size: 19px;
+  }
+
+  .beyond-description {
+    font-size: 11px;
+  }
+
+  .beyond-card-activity,
+  .beyond-card-web,
+  .beyond-card-network {
+    min-height: 310px;
+  }
+
+  .beyond-card-contributions,
+  .contribution-content {
+    min-height: 320px;
+  }
+}
+
+
+/* ================================
+   BEYOND PAGE LABEL
+   Same style as Hero mobile label
+================================ */
+
+@media (max-width: 768px) {
+  .beyond-section-label {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 24px;
+    z-index: 0;
+    width: auto;
+    margin-bottom: 0;
+    pointer-events: none;
+  }
+
+  .beyond-section-label .mobile-page-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--color-muted);
+  }
+
+  .beyond-section-label .home-divider {
+    color: var(--color-accent);
+  }
+
+  .beyond-section-label p {
+    display: block;
+    max-width: 230px;
+    margin-top: 9px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    color: var(--color-muted);
+  }
 }

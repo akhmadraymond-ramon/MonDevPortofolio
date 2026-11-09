@@ -1,7 +1,104 @@
+
 import { useEffect, useState } from 'react';
 import './GitHubActivity.css';
 
 const GITHUB_USERNAME = 'akhmadraymond-ramon';
+
+function ActivityIcon({ name }) {
+  const commonProps = {
+    width: 17,
+    height: 17,
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.8,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    'aria-hidden': true,
+  };
+
+  switch (name) {
+    case 'git-commit-horizontal':
+      return (
+        <svg {...commonProps}>
+          <circle cx="12" cy="12" r="3" />
+          <path d="M3 12h6m6 0h6" />
+        </svg>
+      );
+
+    case 'folder-plus':
+      return (
+        <svg {...commonProps}>
+          <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <path d="M12 11v6m-3-3h6" />
+        </svg>
+      );
+
+    case 'git-pull-request':
+      return (
+        <svg {...commonProps}>
+          <circle cx="6" cy="6" r="3" />
+          <circle cx="18" cy="18" r="3" />
+          <path d="M6 9v12m12-6V9a6 6 0 0 0-6-6h-2" />
+          <path d="m8 5-2 2-2-2" />
+        </svg>
+      );
+
+    case 'circle-dot':
+      return (
+        <svg {...commonProps}>
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      );
+
+    case 'message-circle':
+      return (
+        <svg {...commonProps}>
+          <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z" />
+        </svg>
+      );
+
+    case 'star':
+      return (
+        <svg {...commonProps}>
+          <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9z" />
+        </svg>
+      );
+
+    case 'git-fork':
+      return (
+        <svg {...commonProps}>
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="6" cy="6" r="3" />
+          <circle cx="18" cy="18" r="3" />
+          <path d="M6 9v3a6 6 0 0 0 6 6m0-12v6a6 6 0 0 0 6 6" />
+        </svg>
+      );
+
+    case 'tag':
+      return (
+        <svg {...commonProps}>
+          <path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2a2 2 0 0 1 0-2.8l7.2-7.2A2 2 0 0 1 12 3h7a2 2 0 0 1 2 2v7a2 2 0 0 1-.4 1.4z" />
+          <circle cx="16.5" cy="7.5" r="1" />
+        </svg>
+      );
+
+    case 'trash-2':
+      return (
+        <svg {...commonProps}>
+          <path d="M3 6h18m-2 0-.9 14H5.9L5 6m4 0V4h6v2m-5 4v6m4-6v6" />
+        </svg>
+      );
+
+    default:
+      return (
+        <svg {...commonProps}>
+          <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83" />
+        </svg>
+      );
+  }
+}
 
 function getActivityDetails(event) {
   const repo = event.repo?.name || 'Unknown repository';
@@ -13,31 +110,43 @@ function getActivityDetails(event) {
 
       return {
         icon: 'git-commit-horizontal',
+        category: 'PUSH',
         title: 'Pushed commits',
         description: `${count} commit${count !== 1 ? 's' : ''}`,
         repository: repo,
       };
     }
 
-    case 'CreateEvent':
+    case 'CreateEvent': {
+      const refType = event.payload?.ref_type;
+      const ref = event.payload?.ref;
+
       return {
         icon: 'folder-plus',
-        title: 'Created repository',
-        description: event.payload?.ref || 'New repository activity',
+        category: 'CREATE',
+        title:
+          refType === 'repository'
+            ? 'Created repository'
+            : `Created ${refType || 'new content'}`,
+        description: ref || 'New repository activity',
         repository: repo,
       };
+    }
 
     case 'PullRequestEvent':
       return {
         icon: 'git-pull-request',
+        category: 'PULL REQUEST',
         title: `${event.payload?.action || 'Updated'} pull request`,
-        description: event.payload?.pull_request?.title || 'Pull request activity',
+        description:
+          event.payload?.pull_request?.title || 'Pull request activity',
         repository: repo,
       };
 
     case 'IssuesEvent':
       return {
         icon: 'circle-dot',
+        category: 'ISSUE',
         title: `${event.payload?.action || 'Updated'} issue`,
         description: event.payload?.issue?.title || 'Issue activity',
         repository: repo,
@@ -46,6 +155,7 @@ function getActivityDetails(event) {
     case 'IssueCommentEvent':
       return {
         icon: 'message-circle',
+        category: 'COMMENT',
         title: 'Commented on an issue',
         description: event.payload?.issue?.title || 'New comment',
         repository: repo,
@@ -54,6 +164,7 @@ function getActivityDetails(event) {
     case 'WatchEvent':
       return {
         icon: 'star',
+        category: 'STAR',
         title: 'Starred a repository',
         description: 'Repository starred',
         repository: repo,
@@ -62,6 +173,7 @@ function getActivityDetails(event) {
     case 'ForkEvent':
       return {
         icon: 'git-fork',
+        category: 'FORK',
         title: 'Forked repository',
         description: 'Created a fork',
         repository: repo,
@@ -70,6 +182,7 @@ function getActivityDetails(event) {
     case 'ReleaseEvent':
       return {
         icon: 'tag',
+        category: 'RELEASE',
         title: 'Published a release',
         description: event.payload?.release?.name || 'New release',
         repository: repo,
@@ -78,6 +191,7 @@ function getActivityDetails(event) {
     case 'DeleteEvent':
       return {
         icon: 'trash-2',
+        category: 'DELETE',
         title: 'Deleted repository content',
         description: event.payload?.ref || 'Content deleted',
         repository: repo,
@@ -86,6 +200,7 @@ function getActivityDetails(event) {
     default:
       return {
         icon: 'activity',
+        category: 'ACTIVITY',
         title: event.type?.replace('Event', '') || 'GitHub activity',
         description: 'Repository activity',
         repository: repo,
@@ -95,6 +210,9 @@ function getActivityDetails(event) {
 
 function formatTime(dateString) {
   const date = new Date(dateString);
+
+  if (Number.isNaN(date.getTime())) return '';
+
   const now = new Date();
   const diff = Math.max(0, now - date);
 
@@ -206,17 +324,20 @@ function GitHubActivity() {
     <div className="github-activity-list">
       {activities.map((event) => {
         const activity = getActivityDetails(event);
+        const repositoryUrl = `https://github.com/${
+          event.repo?.name || GITHUB_USERNAME
+        }`;
 
         return (
           <a
             className="github-activity-item"
-            href={`https://github.com/${event.repo?.name || GITHUB_USERNAME}`}
+            href={repositoryUrl}
             target="_blank"
             rel="noreferrer"
             key={event.id}
           >
-            <div className="github-activity-icon">
-                {activity.icon}
+            <div className={`github-activity-icon ${activity.category.toLowerCase().replace(' ', '-')}`}>
+              <ActivityIcon name={activity.icon} />
             </div>
 
             <div className="github-activity-info">
@@ -229,6 +350,7 @@ function GitHubActivity() {
               </div>
 
               <div className="github-activity-repo">
+                <span className="github-activity-repo-dot" />
                 {activity.repository}
               </div>
             </div>

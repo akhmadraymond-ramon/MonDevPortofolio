@@ -1,3 +1,4 @@
+
 /* ================================
    GITHUB ACTIVITY
 ================================ */
@@ -6,7 +7,27 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 18px;
+  max-height: 225px;
+  margin-top: 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #dce2e8 transparent;
+}
+
+/* Scrollbar */
+
+.github-activity-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.github-activity-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.github-activity-list::-webkit-scrollbar-thumb {
+  background: #dce2e8;
+  border-radius: 10px;
 }
 
 /* Activity item */
@@ -14,17 +35,24 @@
 .github-activity-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 11px;
   width: 100%;
-  padding: 12px 0;
+  min-width: 0;
+  padding: 10px 5px 10px 0;
   border-bottom: 1px solid #edf0f3;
   color: #132136;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .github-activity-item:last-child {
   border-bottom: none;
+}
+
+.github-activity-item:hover {
+  background: #fafbfc;
 }
 
 .github-activity-item:hover .github-activity-title {
@@ -38,12 +66,53 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  width: 29px;
+  height: 29px;
+  border-radius: 10px;
   background: #f0f7f1;
   color: #238636;
-  font-size: 17px;
+}
+
+/* Icon variations */
+
+.github-activity-icon.create {
+  background: #eef4ff;
+  color: #4776c5;
+}
+
+.github-activity-icon.pull-request {
+  background: #f3efff;
+  color: #8957e5;
+}
+
+.github-activity-icon.issue {
+  background: #fff5e9;
+  color: #d58a36;
+}
+
+.github-activity-icon.comment {
+  background: #eef6ff;
+  color: #4386c6;
+}
+
+.github-activity-icon.star {
+  background: #fff8e8;
+  color: #d6a12c;
+}
+
+.github-activity-icon.fork {
+  background: #f3efff;
+  color: #8957e5;
+}
+
+.github-activity-icon.release {
+  background: #eff8f1;
+  color: #238636;
+}
+
+.github-activity-icon.delete {
+  background: #fff1f0;
+  color: #d45d55;
 }
 
 /* Activity information */
@@ -55,38 +124,57 @@
 
 .github-activity-title {
   color: #132136;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   line-height: 1.4;
   transition: color 0.2s ease;
 }
 
 .github-activity-description {
-  margin-top: 4px;
+  margin-top: 3px;
   color: #657184;
-  font-size: 11px;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
+  font-size: 10px;
+  line-height: 1.45;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .github-activity-repo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
   margin-top: 5px;
   color: #8993a2;
-  font-size: 10px;
-  overflow-wrap: anywhere;
+  font-size: 9px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.github-activity-repo-dot {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #aab4c0;
 }
 
 /* Time */
 
 .github-activity-time {
   flex-shrink: 0;
-  color: #9aa3af;
-  font-size: 10px;
-  white-space: nowrap;
   padding-top: 2px;
+  color: #9aa3af;
+  font-size: 9px;
+  white-space: nowrap;
 }
 
-/* Loading and error */
+/* ================================
+   LOADING / ERROR
+================================ */
 
 .github-activity-state {
   display: flex;
@@ -102,19 +190,28 @@
   text-align: center;
 }
 
+.github-activity-state p {
+  margin: 0;
+}
+
 .github-activity-state a {
   color: #238636;
   text-decoration: none;
   font-size: 11px;
+  transition: color 0.2s ease;
+}
+
+.github-activity-state a:hover {
+  color: #132136;
 }
 
 .github-activity-state-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+  width: 29px;
+  height: 29px;
+  border-radius: 10px;
   background: #fff3f0;
   color: #d97757;
 }
@@ -142,33 +239,39 @@
 
 @media (max-width: 768px) {
   .github-activity-list {
+    max-height: 230px;
     margin-top: 14px;
   }
 
   .github-activity-item {
-    gap: 10px;
-    padding: 11px 0;
+    gap: 9px;
+    padding: 10px 3px 10px 0;
   }
 
   .github-activity-icon {
-    width: 28px;
-    height: 28px;
-    font-size: 15px;
+    width: 27px;
+    height: 27px;
+    border-radius: 9px;
+  }
+
+  .github-activity-icon svg {
+    width: 15px;
+    height: 15px;
   }
 
   .github-activity-title {
-    font-size: 11px;
-  }
-
-  .github-activity-description {
     font-size: 10px;
   }
 
-  .github-activity-repo {
+  .github-activity-description {
     font-size: 9px;
   }
 
+  .github-activity-repo {
+    font-size: 8px;
+  }
+
   .github-activity-time {
-    font-size: 9px;
+    font-size: 8px;
   }
 }

@@ -1,3 +1,4 @@
+
 import CircularCarousel from '../components/CircularCarousel';
 import BeyondCard from '../components/BeyondCard';
 import { GitHubCalendar } from 'react-github-calendar';
@@ -48,7 +49,7 @@ function Beyond() {
     <section className="beyond" id="beyond">
       <div className="beyond-container">
 
-        {/* Header */}
+        {/* Header - Mobile Only */}
         <div className="beyond-header">
           <div className="beyond-section-label">
             <div className="mobile-page-label">
@@ -61,20 +62,12 @@ function Beyond() {
               What I explore, what I learn, and what I'm working towards.
             </p>
           </div>
-
-          <div className="beyond-heading">
-            <h2>Beyond the projects.</h2>
-
-            <p>
-              What I explore, what I learn, and what I'm working towards.
-            </p>
-          </div>
         </div>
 
         {/* Cards */}
         <div className="beyond-grid">
 
-          {/* Card 1: Recent Activity */}
+          {/* Card 1: Technology */}
           <BeyondCard className="beyond-card-activity">
             <div className="beyond-card-content activity-content">
               <div className="beyond-card-heading">
@@ -120,7 +113,7 @@ function Beyond() {
 
               <div className="beyond-card-heading">
                 <span className="beyond-eyebrow">
-                  GITHUB / CONTRIBUTIONS
+                  02 / GITHUB CONTRIBUTIONS
                 </span>
 
                 <span className="contribution-period">
@@ -161,14 +154,13 @@ function Beyond() {
             </div>
           </BeyondCard>
 
-          {/* Card 3: Web Development */}
           {/* Card 3: GitHub Recent Activity */}
           <BeyondCard className="beyond-card-web">
             <div className="beyond-card-content activity-feed-content">
 
               <div className="beyond-card-heading">
                 <span className="beyond-eyebrow">
-                  02 / GITHUB ACTIVITY
+                  03 / GITHUB ACTIVITY
                 </span>
 
                 <span className="contribution-period">
@@ -188,30 +180,33 @@ function Beyond() {
           </BeyondCard>
 
           {/* Card 4: Networking & IT */}
-          <BeyondCard className="beyond-card-network">
-            <div className="beyond-card-content focus-content">
-              <span className="beyond-eyebrow">
-                02 / FOCUS AREA
-              </span>
+          
+        {/* Card 4: Looking for a Job */}
+        <BeyondCard className="beyond-card-network">
+          <div className="beyond-card-content focus-content">
+            <span className="beyond-eyebrow">
+              04 / CAREER STATUS
+            </span>
 
-              <div className="focus-main">
-                <span className="focus-number">02</span>
+            <div className="focus-main">
+              <span className="focus-number">04</span>
 
-                <h3>Networking & IT</h3>
+              <h3>Looking for a Job</h3>
 
-                <p className="beyond-description">
-                  Exploring networks, infrastructure,
-                  and the technology behind connected systems.
-                </p>
-              </div>
-
-              <div className="focus-tags">
-                <span>Networking</span>
-                <span>Systems</span>
-                <span>Technology</span>
-              </div>
+              <p className="beyond-description">
+                Open to new opportunities, ready to learn,
+                grow, and contribute to a team.
+              </p>
             </div>
-          </BeyondCard>
+
+            <div className="focus-tags">
+              <span>Open to Work</span>
+              <span>Entry Level</span>
+              <span>Available</span>
+            </div>
+          </div>
+        </BeyondCard>
+
 
         </div>
       </div>

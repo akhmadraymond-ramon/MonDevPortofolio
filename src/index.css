@@ -1,6 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Typography */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+
+  /* Colors */
+  --color-primary: #132136;
+  --color-secondary: #64748B;
+  --color-muted: #8993A2;
+  --color-accent: #1063BC;
+  --color-success: #16A34A;
+  --color-border: #E5E7EB;
+  --color-surface: #FFFFFF;
+
+  /* Layout */
+  --radius-card: 32px;
+}
+
 html {
   scroll-behavior: smooth;
 }

@@ -153,12 +153,12 @@ function Hero() {
                             backImage="/icons/programming.png"
                             strapImage="/icons/linkedin-white.svg"
                             strapColor="#202020"
-                            strapLength={1}
+                            strapLength={0.7}
                             logoSpacing="2"
                             anchor="center"
                             finish="matte"
                             metal="graphite"
-                            size={0.5}
+                            size={0.35}
                             orientation="portrait"
                         />
                     </div>

@@ -1,4 +1,8 @@
 
+/* =================================
+   ABOUT BASE
+================================= */
+
 .about {
   width: 100%;
   min-height: 100vh;
@@ -6,6 +10,7 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  color: var(--color-primary);
 }
 
 .about-container {
@@ -22,6 +27,11 @@
   display: none;
 }
 
+
+/* =================================
+   ABOUT CARDS
+================================= */
+
 .about-left,
 .experience-card {
   position: relative;
@@ -33,11 +43,11 @@
   margin: 0 auto;
   padding: 40px 35px;
   box-sizing: border-box;
-  background: #ffffff;
-  border: 2px solid #e5e7eb;
-  border-radius: 36px;
-  color: #132136;
-  box-shadow: inset 0 0 0 0 #171717;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  color: var(--color-primary);
+  box-shadow: inset 0 0 0 0 var(--color-primary);
   transition:
     box-shadow 0.4s ease,
     transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -46,8 +56,13 @@
 }
 
 .about-left {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-body);
 }
+
+
+/* =================================
+   WINDOW HEADER
+================================= */
 
 .about-window-header {
   display: flex;
@@ -86,6 +101,11 @@
   font-weight: 600;
 }
 
+
+/* =================================
+   ABOUT INTRODUCTION
+================================= */
+
 .about-introduction {
   margin-top: 40px;
   text-align: center;
@@ -94,7 +114,8 @@
 .about-date {
   display: block;
   margin-bottom: 18px;
-  color: #9ca3af;
+  color: var(--color-muted);
+  font-family: var(--font-body);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.5px;
@@ -102,11 +123,11 @@
 
 .about-introduction h2,
 .experience-content h2 {
-  color: #132136;
-  font-family: 'Nunito', sans-serif;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
   font-size: 30px;
-  font-weight: 800;
-  letter-spacing: -1px;
+  font-weight: 700;
+  letter-spacing: -0.045em;
 }
 
 .about-introduction h2 {
@@ -117,20 +138,26 @@
   max-width: 430px;
   margin: 0 auto 14px;
   padding: 0 20px;
-  color: #64748b;
+  color: var(--color-secondary);
+  font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.8;
   text-align: left;
 }
 
 .about-introduction strong {
-  color: #132136;
+  color: var(--color-primary);
   font-weight: 700;
 }
 
 .about-availability {
   margin-top: 24px !important;
 }
+
+
+/* =================================
+   DIVIDERS
+================================= */
 
 .about-divider,
 .experience-divider {
@@ -147,9 +174,15 @@
   margin: 45px 0 25px;
 }
 
+
+/* =================================
+   TECH STACK
+================================= */
+
 .about-tech h3 {
   margin-bottom: 20px;
-  color: #64748b;
+  color: var(--color-secondary);
+  font-family: var(--font-body);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -162,13 +195,18 @@
   overflow: hidden;
 }
 
+
+/* =================================
+   EXPERIENCE CARD
+================================= */
+
 .about-right {
   min-width: 0;
 }
 
 .experience-card {
   padding: 25px 35px 40px;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-body);
 }
 
 .experience-window-header {
@@ -176,7 +214,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 25px;
-  color: #64748b;
+  color: var(--color-secondary);
   font-size: 12px;
   font-weight: 500;
 }
@@ -196,6 +234,11 @@
   margin: 28px 0;
 }
 
+
+/* =================================
+   EXPERIENCE ITEMS
+================================= */
+
 .experience-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -211,7 +254,8 @@
   grid-column: 1;
   grid-row: 1;
   margin: 0;
-  color: #132136;
+  color: var(--color-primary);
+  font-family: var(--font-body);
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
@@ -221,7 +265,7 @@
   grid-column: 1;
   grid-row: 2;
   margin-top: 4px;
-  color: #64748b;
+  color: var(--color-secondary);
   font-size: 13px;
   font-weight: 500;
   line-height: 1.6;
@@ -233,7 +277,7 @@
   width: 100%;
   max-width: none;
   margin: 12px 0 0;
-  color: #64748b;
+  color: var(--color-secondary);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.8;
@@ -243,15 +287,25 @@
 .experience-year {
   grid-column: 2;
   grid-row: 1;
-  color: #9ca3af;
+  color: var(--color-muted);
   font-size: 12px;
   font-weight: 500;
   line-height: 1.5;
 }
 
+
+/* =================================
+   HOVER LABEL
+================================= */
+
 .card-hover-label {
   display: none;
 }
+
+
+/* =================================
+   MODAL
+================================= */
 
 .about-modal-backdrop {
   position: fixed;
@@ -282,15 +336,20 @@
   overflow: hidden;
   background: transparent;
   border: none;
-  border-radius: 36px;
+  border-radius: var(--radius-card);
   box-shadow: 0 25px 70px rgba(15, 23, 42, 0.16);
   animation: modalZoomIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .about-modal-about,
 .about-modal-experience {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-body);
 }
+
+
+/* =================================
+   MAGNIFIER
+================================= */
 
 .magnifier-stage {
   position: relative;
@@ -299,9 +358,9 @@
   min-height: 0;
   overflow: hidden;
   box-sizing: border-box;
-  background: #ffffff;
-  border: 2px solid #e5e7eb;
-  border-radius: 36px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
   cursor: crosshair;
 }
 
@@ -316,7 +375,7 @@
   padding: 40px 35px;
   box-sizing: border-box;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--color-surface);
   transform-origin: top left;
 }
 
@@ -334,7 +393,7 @@
   z-index: 5;
   overflow: hidden;
   pointer-events: none;
-  border-radius: 34px;
+  border-radius: calc(var(--radius-card) - 2px);
   background: rgba(255, 255, 255, 0.025);
   box-shadow:
     inset 0 0 0 1.5px rgba(255, 255, 255, 0.95),
@@ -349,7 +408,7 @@
   height: 100%;
   padding: 40px 35px;
   box-sizing: border-box;
-  background: #ffffff;
+  background: var(--color-surface);
   transform: scale(1.24);
   transform-origin: center center;
 }
@@ -357,6 +416,11 @@
 .about-modal-experience .magnifier-lens-content {
   padding: 25px 35px 40px;
 }
+
+
+/* =================================
+   MODAL BUTTONS
+================================= */
 
 .popup-close-dot {
   display: inline-block;
@@ -386,9 +450,14 @@
 }
 
 .popup-back-button:hover {
-  color: #132136;
+  color: var(--color-primary);
   transform: translateX(-4px);
 }
+
+
+/* =================================
+   MODAL ANIMATIONS
+================================= */
 
 @keyframes modalBackdropIn {
   from {
@@ -421,17 +490,23 @@
   border-radius: 10px;
 }
 
-@media (hover: hover) and (pointer: fine) and (min-width: 1025px) {
+
+/* =================================
+   DESKTOP HOVER
+================================= */
+
+@media (hover: hover) and (pointer: fine) and (min-width: 769px) {
+
   .about-left:hover,
   .experience-card:hover {
-    box-shadow: inset 0 0 0 2px #171717;
+    box-shadow: inset 0 0 0 2px var(--color-primary);
     transform: translateY(-2px) rotate(-0.25deg);
   }
 
   .about-left:hover .about-divider,
   .experience-card:hover .experience-divider {
     height: 3px;
-    background: #171717;
+    background: var(--color-primary);
   }
 
   .card-hover-label {
@@ -440,7 +515,8 @@
     left: var(--cursor-x, 50%);
     top: var(--cursor-y, 50%);
     z-index: 10;
-    color: #9ca3af;
+    color: var(--color-muted);
+    font-family: var(--font-body);
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.8px;
@@ -457,10 +533,77 @@
   }
 }
 
-@media (max-width: 1024px) {
+
+/* =================================
+   TABLET
+   DESKTOP LAYOUT DIPERTAHANKAN
+================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .about {
+    min-height: 100vh;
+    padding: 80px 5%;
+  }
+
+  .about-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 100%;
+  }
+
+  .about-left,
+  .experience-card {
+    max-width: none;
+    min-height: 480px;
+    padding: 32px 24px;
+  }
+
+  .about-introduction {
+    margin-top: 32px;
+  }
+
+  .about-introduction h2,
+  .experience-content h2 {
+    font-size: 27px;
+  }
+
+  .about-introduction p {
+    padding: 0 5px;
+    font-size: 13px;
+  }
+
+  .experience-info h3 {
+    font-size: 14px;
+  }
+
+  .experience-info p {
+    font-size: 13px;
+  }
+
+  .magnifier-stage {
+    cursor: default;
+  }
+
+  .magnifier-lens {
+    display: none !important;
+  }
+
+  .magnifier-base.has-magnifier {
+    filter: none;
+  }
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+
   .about {
     min-height: auto;
-    padding: 100px 6%;
+    padding: 80px 6%;
   }
 
   .about-container {
@@ -490,7 +633,7 @@
   .about-left:hover,
   .experience-card:hover {
     transform: none;
-    box-shadow: inset 0 0 0 0 #171717;
+    box-shadow: inset 0 0 0 0 var(--color-primary);
   }
 
   .about-left:hover .about-divider,
@@ -516,7 +659,13 @@
   }
 }
 
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
 @media (max-width: 600px) {
+
   .about {
     padding: 80px 18px;
   }
@@ -529,7 +678,7 @@
   .experience-card {
     min-height: auto;
     padding: 30px 24px;
-    border-radius: 28px;
+    border-radius: var(--radius-card);
     margin-bottom: 45px;
   }
 
@@ -587,15 +736,15 @@
   .about-modal {
     width: calc(100vw - 28px);
     height: min(620px, calc(100vh - 28px));
-    border-radius: 30px;
+    border-radius: 28px;
   }
 
   .magnifier-stage {
-    border-radius: 30px;
+    border-radius: 28px;
   }
 
   .magnifier-lens {
-    border-radius: 28px;
+    border-radius: 26px;
   }
 
   .magnifier-base {
@@ -615,7 +764,13 @@
   }
 }
 
+
+/* =================================
+   EXTRA SMALL MOBILE
+================================= */
+
 @media (max-width: 375px) {
+
   .about {
     padding: 70px 18px;
   }
@@ -649,24 +804,299 @@
   }
 }
 
+
+
+/* ========================================
+   RESPONSIVE CARD SYSTEM
+======================================== */
+
+/* DESKTOP */
 @media (min-width: 1025px) {
   .about {
-    height: 100svh;
-    min-height: 0;
-    padding: clamp(50px, 9vh, 90px) 7% 30px;
-    box-sizing: border-box;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: clamp(24px, 5vh, 64px) 7%;
   }
 
   .about-container {
-    max-width: 1050px;
-    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    gap: clamp(18px, 2vw, 24px);
+    align-items: stretch;
   }
 
-  .about-container > .about-left,
-  .about-container > .experience-card {
-    max-width: 440px;
-    min-height: 460px;
-    padding: 32px 28px;
-    zoom: clamp(0.75, calc(100vh / 900), 1);
+  /* Kedua card mengikuti tinggi baris grid */
+  .about-left,
+  .experience-card {
+    width: 100%;
+    max-width: 480px;
+    min-width: 0;
+    min-height: clamp(480px, calc(100svh - 120px), 610px);
+    height: auto;
+    padding: clamp(24px, 3.5vh, 38px)
+             clamp(22px, 2.5vw, 35px);
+    box-sizing: border-box;
+  }
+
+  .about-introduction {
+    margin-top: clamp(20px, 3.5vh, 32px);
+  }
+
+  .about-date {
+    margin-bottom: clamp(10px, 2vh, 18px);
+    font-size: clamp(11px, 1.2vh, 12px);
+  }
+
+  .about-introduction h2,
+  .experience-content h2 {
+    font-size: clamp(25px, 2vw, 30px);
+  }
+
+  .about-introduction h2 {
+    margin-bottom: clamp(16px, 3vh, 28px);
+  }
+
+  .about-introduction p {
+    width: 100%;
+    max-width: 430px;
+    padding: 0;
+    margin: 0 auto clamp(9px, 1.5vh, 14px);
+    font-size: clamp(12px, 1.3vh, 14px);
+    line-height: 1.7;
+  }
+
+  .about-availability {
+    margin-top: clamp(12px, 2.5vh, 22px) !important;
+  }
+
+  .about-divider {
+    margin: clamp(20px, 4vh, 38px) 0
+             clamp(12px, 2.5vh, 22px);
+  }
+
+  .about-tech h3 {
+    margin-bottom: clamp(10px, 2vh, 18px);
+    font-size: clamp(10px, 1.2vh, 12px);
+  }
+
+  .tech-logo-loop {
+    height: clamp(50px, 8vh, 80px);
+  }
+
+  /* Experience card */
+  .experience-card {
+    padding-top: clamp(22px, 3vh, 30px);
+    padding-bottom: clamp(24px, 3.5vh, 38px);
+  }
+
+  .experience-window-header {
+    margin-bottom: clamp(14px, 2.5vh, 24px);
+    font-size: clamp(10px, 1.2vh, 12px);
+  }
+
+  .experience-back {
+    font-size: clamp(23px, 3vh, 28px);
+  }
+
+  .experience-content {
+    padding-top: clamp(0px, 1.5vh, 12px);
+  }
+
+  .experience-content h2 {
+    margin-bottom: clamp(18px, 3.5vh, 30px);
+  }
+
+  .experience-divider {
+    margin: clamp(14px, 2.8vh, 24px) 0;
+  }
+
+  .experience-item {
+    column-gap: clamp(8px, 1vw, 12px);
+    min-width: 0;
+  }
+
+  .experience-info h3 {
+    font-size: clamp(13px, 1.5vh, 16px);
+    overflow-wrap: anywhere;
+  }
+
+  .experience-info span {
+    font-size: clamp(11px, 1.25vh, 13px);
+  }
+
+  .experience-info p {
+    font-size: clamp(12px, 1.35vh, 14px);
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  .experience-year {
+    font-size: clamp(10px, 1.2vh, 12px);
+  }
+}
+
+
+/* DESKTOP PENDEK */
+@media (min-width: 1025px) and (max-height: 800px) {
+  .about {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .about-left,
+  .experience-card {
+    min-height: 0;
+    padding: 24px 28px;
+  }
+
+  .about-introduction {
+    margin-top: 18px;
+  }
+
+  .about-introduction h2 {
+    margin-bottom: 14px;
+  }
+
+  .about-introduction p {
+    margin-bottom: 7px;
+    line-height: 1.5;
+  }
+
+  .about-availability {
+    margin-top: 12px !important;
+  }
+
+  .about-divider {
+    margin: 18px 0 12px;
+  }
+
+  .tech-logo-loop {
+    height: 55px;
+  }
+
+  .experience-content {
+    padding-top: 0;
+  }
+
+  .experience-content h2 {
+    margin-bottom: 18px;
+  }
+
+  .experience-divider {
+    margin: 14px 0;
+  }
+
+  .experience-info p {
+    margin-top: 7px;
+    line-height: 1.5;
+  }
+}
+
+
+/* DESKTOP SANGAT PENDEK */
+@media (min-width: 1025px) and (max-height: 650px) {
+  .about {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .about-left,
+  .experience-card {
+    padding: 18px 24px;
+  }
+
+  .about-introduction {
+    margin-top: 12px;
+  }
+
+  .about-introduction h2 {
+    margin-bottom: 10px;
+  }
+
+  .about-introduction p {
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+  }
+
+  .about-divider {
+    margin: 12px 0 8px;
+  }
+
+  .tech-logo-loop {
+    height: 42px;
+  }
+
+  .experience-window-header {
+    margin-bottom: 10px;
+  }
+
+  .experience-content h2 {
+    margin-bottom: 12px;
+  }
+
+  .experience-divider {
+    margin: 10px 0;
+  }
+
+  .experience-info p {
+    font-size: 12px;
+    line-height: 1.4;
+    margin-top: 5px;
+  }
+}
+
+
+/* TABLET */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-left,
+  .experience-card {
+    min-width: 0;
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .about-introduction p,
+  .experience-info p {
+    overflow-wrap: anywhere;
+  }
+
+  .experience-item {
+    min-width: 0;
+  }
+
+  .experience-info h3 {
+    overflow-wrap: anywhere;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .about-left,
+  .experience-card {
+    min-width: 0;
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .about-introduction p,
+  .experience-info p {
+    overflow-wrap: anywhere;
+  }
+
+  .experience-item {
+    min-width: 0;
+  }
+}
+
+/* =================================
+   MOBILE HEADER POSITION
+================================= */
+
+@media (max-width: 768px) {
+  .about-container > .mobile-background-text {
+    padding-left: 6px;
+    box-sizing: border-box;
   }
 }
