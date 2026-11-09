@@ -1,5 +1,5 @@
 
-import Profilecard from "../components/Profilecard";
+import Profilecard from "../components/ProfileCard";
 import Navbar from "../components/Navbar";
 import TypingText from "../components/TypingText";
 import Lanyard from "../components/Lanyard";
